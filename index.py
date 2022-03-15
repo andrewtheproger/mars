@@ -1,6 +1,57 @@
-from flask import Flask
+import os
+from flask import Flask, flash, request, redirect, url_for
+from PIL import Image
 
+# creating a image object (main image)
+
+
+# save a image using extension
+
+# папка для сохранения загруженных файлов
+UPLOAD_FOLDER = './static/img/'
 app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+
+@app.route('/load_photo', methods=['GET', 'POST'])
+def upload_file():
+    try:
+        if request.method == 'POST':
+            file = request.files['file']
+            print(os.path.join(app.config['UPLOAD_FOLDER'], "photo.jpg"))
+            im = Image.open(UPLOAD_FOLDER + "mars2.jpg")
+            im.save(UPLOAD_FOLDER + "photo.jpg")
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], "photo.jpg"))
+            return redirect(url_for('upload_file'))
+        else:
+            return f'''<!doctype html>
+                            <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+              integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+              crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
+        <title>Пример формы</title>
+    </head>
+    <body>
+    <h1 class = "form_h1">Загрузка фотографии для участия в миссии</h1>
+    <div>
+        <form class="upload" method="post" enctype=multipart/form-data>
+            <div class="form-group">
+                <label for="photo">Приложите фотографию</label>
+                <input type="file" class="form-control-file" id="photo" name="file">
+            </div>
+            <img src="/static/img/photo.jpg" alt="у нас нет вашей фотографии..." class = "avatar">
+            <button type="submit" class="btn btn-primary">Записаться</button>
+        </form>
+    </div>
+    </body>
+    </html>'''
+    except Exception as e:
+        print(e)
 
 
 @app.route('/')
