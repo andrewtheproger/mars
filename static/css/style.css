@@ -45,3 +45,10 @@ h4 {
 main {
   padding: 20px;
 }
+
+h2.distribution {
+  text-align: center;
+}
+p.distribution{
+  text-align: center;
+}

@@ -1,29 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>{{title}}</title>
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
-  </head>
-  <body>
-    <header>
-      <div class="main-header">
-        <h1>Миссия Колонизация Марса</h1>
-      </div>
-      <h4>И на Марсе будут яблони цвести!</h4>
-    </header>
-    <main>
-      <p>Фамилия: {{surname}}</p>
-      <p>Имя: {{name}}</p>
-      <p>Образование: {{education}}</p>
-      <p>Профессия: {{profession }}</p>
-      <p>Пол: {{sex}}</p>
-      <p>Мотивация: {{motivation}}</p>
-      <p>Готовы остаться на Марсе? {{ready}}</p>
-    </main>
-  </body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+<p>Фамилия: {{surname}}</p>
+<p>Имя: {{name}}</p>
+<p>Образование: {{education}}</p>
+<p>Профессия: {{profession }}</p>
+<p>Пол: {{sex}}</p>
+<p>Мотивация: {{motivation}}</p>
+<p>Готовы остаться на Марсе? {{ready}}</p>
+{% endblock %}

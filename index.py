@@ -15,7 +15,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route('/auto_answer')
 @app.route('/answer')
-def training():
+def answer():
     person = {}
     person["title"] = "Анкета"
     person["name"] = "Andrew"
@@ -26,6 +26,13 @@ def training():
     person["motivation"] = "как-то скучно тут"
     person["ready"] = False
     return render_template('auto_answer.html', **person)
+
+
+@app.route('/distribution')
+def distribution():
+    person = ["Екатерина Владимировна", "Алиса Шапочкина", "Александр Астафуров", "Елена Старостина",
+              "Андрей Бохонов", "Емелин Николай", "Александр Котиков", "Женя Строков", "Юля Федорищева"]
+    return render_template('distribution.html', person=person)
 
 
 @app.route('/load_photo', methods=['GET', 'POST'])
