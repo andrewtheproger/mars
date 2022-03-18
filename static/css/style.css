@@ -16,6 +16,15 @@
 .form_h1 {
   text-align: center;
 }
+body {
+  margin: 0px;
+  padding: 0px;
+}
+.main-header {
+  margin: 0px;
+  background-color: #f8f9fa;
+}
+
 form.upload {
   margin-left: auto;
   margin-right: auto;
@@ -28,4 +37,11 @@ form.upload {
 .avatar {
   width: 300px;
   height: 300px;
+}
+h4 {
+  margin-left: 20px;
+  color: brown;
+}
+main {
+  padding: 20px;
 }

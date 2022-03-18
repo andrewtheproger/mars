@@ -1,5 +1,5 @@
 import os
-from flask import Flask, flash, request, redirect, url_for
+from flask import Flask, flash, request, redirect, url_for, render_template
 from PIL import Image
 
 # creating a image object (main image)
@@ -11,6 +11,21 @@ from PIL import Image
 UPLOAD_FOLDER = './static/img/'
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+
+@app.route('/auto_answer')
+@app.route('/answer')
+def training():
+    person = {}
+    person["title"] = "Анкета"
+    person["name"] = "Andrew"
+    person["surname"] = "Bokhonov"
+    person["education"] = "курсы Академии Яндекса"
+    person["profession"] = "программист"
+    person["sex"] = "male"
+    person["motivation"] = "как-то скучно тут"
+    person["ready"] = False
+    return render_template('auto_answer.html', **person)
 
 
 @app.route('/load_photo', methods=['GET', 'POST'])
