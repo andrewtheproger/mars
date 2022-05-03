@@ -13,6 +13,30 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
+@app.route('/table_param/<gender>/<int:age>')
+def table_param(gender, age):
+    wall = ""
+    if gender in ["male", "female"]:
+        if gender == "male":
+            photo = "male"
+            wall = "blue"
+        else:
+            photo = "female"
+            wall = "purple"
+        if age >= 21:
+            photo += "_2"
+            wall += "-dark"
+        else:
+            photo += "_1"
+            wall += "-light"
+    else:
+        photo = "no_gender"
+        wall = "green"
+    photo += ".jfif"
+    wall += ".jfif"
+    return render_template('rooms.html', wall=wall, photo=photo)
+
+
 @app.route('/auto_answer')
 @app.route('/answer')
 def answer():
@@ -40,9 +64,8 @@ def upload_file():
     try:
         if request.method == 'POST':
             file = request.files['file']
-            print(os.path.join(app.config['UPLOAD_FOLDER'], "photo.jpg"))
-            im = Image.open(UPLOAD_FOLDER + "mars2.jpg")
-            im.save(UPLOAD_FOLDER + "photo.jpg")
+            f = open(os.path.join(app.config['UPLOAD_FOLDER'], "photo.jpg"), 'w+')
+            f.close()
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], "photo.jpg"))
             return redirect(url_for('upload_file'))
         else:

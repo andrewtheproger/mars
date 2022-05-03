@@ -1,0 +1,23 @@
+{% extends "base.html" %} {% block content %}
+<h2 class="distribution">
+  <b>Оформление кают</b>
+</h2>
+<table>
+    <tr>
+        <td width="500px">
+            Цвет стен
+        </td>
+        <td width="500px">
+            Эмблема
+        </td>
+    </tr>
+    <tr>
+        <td width="500px">
+            <img src="/static/img/{{wall}}" class="room">
+        </td>
+        <td width="500px">
+            <img src="/static/img/{{photo}}" class="room">
+        </td>
+    </tr>
+</table>
+{% endblock %}
