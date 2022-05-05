@@ -53,7 +53,7 @@ def answer():
     return render_template('auto_answer.html', **person)
 
 
-@app.route('/members')
+@app.route('/member')
 def member():
     with open("astronauts.json", encoding="utf-8") as f:
         members = json.load(f)
