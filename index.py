@@ -14,6 +14,24 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
+@app.route('/galery', methods=['GET', 'POST'])
+def galery():
+    if request.method == 'POST':
+        file = request.files['file']
+        photos = []
+        for i in os.listdir(app.config['UPLOAD_FOLDER'] + 'carousel/'):
+            photos.append(i[:i.index(".")])
+        f = open(os.path.join(app.config['UPLOAD_FOLDER'] + 'carousel/', f"{len(photos) + 1}.jpg"), 'w+')
+        f.close()
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'] + 'carousel/', f"{len(photos) + 1}.jpg"))
+        return redirect(url_for('galery'))
+    else:
+        photos = []
+        for i in os.listdir(app.config['UPLOAD_FOLDER'] + 'carousel/'):
+            photos.append(i)
+        return render_template('carousel.html', photos=photos[1:], length=list(range(1, len(photos))))
+
+
 @app.route('/table_param/<gender>/<int:age>')
 def table_param(gender, age):
     wall = ""
