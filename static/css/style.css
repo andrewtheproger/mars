@@ -55,3 +55,11 @@ p.distribution{
 img.room {
   width: 100%
 }
+.name {
+text-align: center
+}
+.center {
+margin-right: auto;
+margin-left: auto;
+width: 500px
+}

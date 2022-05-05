@@ -1,5 +1,6 @@
 import os
 from flask import Flask, flash, request, redirect, url_for, render_template
+import json
 from PIL import Image
 
 # creating a image object (main image)
@@ -50,6 +51,13 @@ def answer():
     person["motivation"] = "как-то скучно тут"
     person["ready"] = False
     return render_template('auto_answer.html', **person)
+
+
+@app.route('/members')
+def member():
+    with open("astronauts.json", encoding="utf-8") as f:
+        members = json.load(f)
+    return render_template('members.html', members=members)
 
 
 @app.route('/distribution')

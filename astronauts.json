@@ -1,0 +1,17 @@
+[{
+ "name": "Ридли Скотт",
+ "speciality": ["ничегонеделыватель", "поедатель чипсов", "астролентяй"],
+ "photo": "https://www.pinclipart.com/picdir/middle/534-5340080_astronaut-helmet-clipart.png"
+},
+ {
+ "name": "Джеймс Смит",
+ "speciality": ["менеджер по отдыху", "руководитель отдела сна"],
+ "photo": "https://image.freepik.com/free-vector/cute-astronaut-lifting-dumbbell-cartoon-icon-illustration-science-sport-icon-concept-isolated-flat-cartoon-style_138676-2382.jpg"
+
+},
+ {
+ "name": "Рик Брэйкер",
+ "speciality": ["эксперт по рекреации"],
+ "photo": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.freepik.com%2Ffree-vector%2Fastronaut-riding-rocket-icon-illustration-spaceman-mascot-cartoon-character-science-icon-concept-isolated_138676-970.jpg%3Fsize%3D664%26ext%3Djpg&f=1&nofb=1"
+}
+]
